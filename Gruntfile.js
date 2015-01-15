@@ -12,7 +12,7 @@ module.exports = function(grunt) {
           'public/client/*.js'
 
         ],
-        dest: 'js/build/production.js'
+        dest: 'public/dist/production.js'
       }
     },
 
@@ -34,8 +34,8 @@ module.exports = function(grunt) {
     uglify: {
       //uglify the dest concat file to Minify THIS IS FOR MINIFY
       build: {
-        src: 'js/build/production.js',
-        dest: 'js/build/production.min.js'
+        src: 'public/dist/production.js',
+        dest: 'public/dist/production.min.js'
 
       }
     },
@@ -123,8 +123,6 @@ module.exports = function(grunt) {
     'concat',
     //minify
     'uglify'
-
-
   ]);
 
   grunt.registerTask('upload', function(n) {
@@ -138,6 +136,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('deploy', [
+    "build",
     "upload"
     // add your deploy tasks here
   ]);
