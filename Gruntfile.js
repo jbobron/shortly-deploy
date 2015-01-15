@@ -1,8 +1,19 @@
 module.exports = function(grunt) {
 
+
+  //1. All configuration goes here
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    //2. Configuration for concatinating files goes here
     concat: {
+      dist:{
+        src: [
+          'public/client/*.js'
+
+        ],
+        dest: 'js/build/production.js'
+      }
     },
 
     mochaTest: {
@@ -21,11 +32,19 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      //uglify the dest concat file to Minify THIS IS FOR MINIFY
+      build: {
+        src: 'js/build/production.js',
+        dest: 'js/build/production.min.js'
+
+      }
     },
 
     jshint: {
       files: [
         // Add filespec list here
+        //add what you want Linted
+        'public/client/*.js'
       ],
       options: {
         force: 'true',
@@ -63,6 +82,7 @@ module.exports = function(grunt) {
     },
   });
 
+  //3. Where we tell Grunt we plan to use this plug-in
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -72,8 +92,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
 
+  //4. Where we tell Grunt what to do when we type "grunt" into the terminal.
   grunt.registerTask('server-dev', function (target) {
-    // Running nodejs in a different process and displaying output on the main console
+    // Running nodejs in a different process and displaying
+    //output on the main console
     var nodemon = grunt.util.spawn({
          cmd: 'grunt',
          grunt: true,
@@ -94,17 +116,29 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('build', [
+    //what does this do
+    //lint
+    'jshint',
+    //concat
+    'concat',
+    //minify
+    'uglify'
+
+
   ]);
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      //call build here
+
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
   grunt.registerTask('deploy', [
+    "upload"
     // add your deploy tasks here
   ]);
 
