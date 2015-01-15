@@ -1,0 +1,33 @@
+Thu Jan 15 2015 11:15:46 GMT-0800 (PST):
+{ [Error: Server returned an unknown AccountType: undefined]
+  stack: [Getter/Setter],
+  __frame: 
+   { name: 'getSubscriptions',
+     line: 23,
+     file: '/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/util/profile/subscriptionUtils._js',
+     prev: 
+      { name: '__1',
+        line: 42,
+        file: '/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/commands/login._js',
+        prev: undefined,
+        active: false,
+        offset: 48,
+        col: 31 },
+     active: false,
+     offset: 1,
+     col: 20 },
+  rawStack: [Getter] }
+Error: Server returned an unknown AccountType: undefined
+    at Logger.createError (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/adal-node/lib/log.js:196:13)
+    at /Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/adal-node/lib/token-request.js:373:35
+    at UserRealm._parseDiscoveryResponse (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/adal-node/lib/user-realm.js:234:3)
+    at /Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/adal-node/lib/user-realm.js:263:12
+    at Request._callback (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/adal-node/lib/util.js:116:5)
+    at Request.self.callback (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/request/request.js:129:22)
+    at Request.EventEmitter.emit (events.js:98:17)
+    at Request.<anonymous> (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/request/request.js:873:14)
+    at Request.EventEmitter.emit (events.js:117:20)
+    at IncomingMessage.<anonymous> (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/node_modules/request/request.js:824:12)
+    at getSubscriptions (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/util/profile/subscriptionUtils._js:24:20)
+    at __1 (/Users/student/.nvm/v0.10.26/lib/node_modules/azure-cli/lib/commands/login._js:90:31)
+
