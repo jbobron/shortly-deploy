@@ -47,10 +47,8 @@ module.exports = function(grunt) {
         'public/client/*.js'
       ],
       options: {
-        force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
-          'public/lib/**/*.js',
           'public/dist/**/*.js'
         ]
       }
