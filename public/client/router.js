@@ -13,8 +13,10 @@ Shortly.Router = Backbone.Router.extend({
   },
 
   index: function(){
+    debugger;
     var links = new Shortly.Links();
     var linksView = new Shortly.LinksView({ collection: links });
+    console.log("Links", links);
     this.swapView(linksView);
   },
 

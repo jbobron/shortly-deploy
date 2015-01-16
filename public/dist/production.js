@@ -106,7 +106,7 @@ Shortly.LinkView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template(this.model.attributes));
-    console.log(this.model);
+    console.log("This:", this.model.attributes);
     return this;
   }
 });
@@ -154,8 +154,10 @@ Shortly.Router = Backbone.Router.extend({
   },
 
   index: function(){
+    debugger;
     var links = new Shortly.Links();
     var linksView = new Shortly.LinksView({ collection: links });
+    console.log("Links", links);
     this.swapView(linksView);
   },
 
